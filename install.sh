@@ -1,32 +1,24 @@
 #!/bin/sh
 
-
 # sudo pacman -S nnn sxiv nvim picom fish alsa-utils cmus mpv
 
-if [ ! -L ~/.config/nnn ]; then
-  rm -rf ~/.config/nnn
-  ln -s config/nnn ~/.config/nnn
-fi
+[ ! -e  ~/.xinitrc ] && cp config/.xinitrc ~/
 
-if [ ! -L ~/.config/sxiv ]; then
-  rm -rf ~/.config/sxiv
-  ln config/sxiv ~/.config/sxiv
-fi
+[ -e ~/.config/nnn ] && rm -rf ~/.config/nnn
+cp -r config/nnn ~/.config/nnn
 
-if [ ! -L ~/.config/nvim ]; then
-  rm -rf ~/.config/nvim
-  ln config/nvim ~/.config/nvim
-fi
+[ -e ~/.config/sxiv ] &&  rm -rf ~/.config/sxiv
+cp -r config/sxiv ~/.config/sxiv
 
-if [ ! -L ~/.config/picom ]; then
-  rm -rf ~/.config/picom
-  ln config/picom ~/.config/picom
-fi
+[ -e ~/.config/nvim ] && rm -rf ~/.config/nvim
+cp -r config/nvim ~/.config/nvim
 
-if [ ! -L ~/.config/fish ]; then
+[ -e ~/.config/picom ] && rm -rf ~/.config/picom
+cp -r config/picom ~/.config/picom
+
+if [ -e ~/.config/fish ]; then
   rm -rf ~/.config/fish
-  ln config/fish ~/.config/fish
-  chsh -s/usr/bin/fish
+  cp -r config/fish ~/.config/fish
+  chsh -s /usr/bin/fish
 fi
-
 

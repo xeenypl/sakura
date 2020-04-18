@@ -1,24 +1,10 @@
 #!/bin/sh
 
-# sudo pacman -S nnn sxiv nvim picom fish alsa-utils cmus mpv
+git clone https://aur.archlinux.org/yay.git /tmp/yay
+cd /tmp/yay
+makepkg -si
 
-[ ! -e  ~/.xinitrc ] && cp config/.xinitrc ~/
-
-[ -e ~/.config/nnn ] && rm -rf ~/.config/nnn
-cp -r config/nnn ~/.config/nnn
-
-[ -e ~/.config/sxiv ] &&  rm -rf ~/.config/sxiv
-cp -r config/sxiv ~/.config/sxiv
-
-[ -e ~/.config/nvim ] && rm -rf ~/.config/nvim
-cp -r config/nvim ~/.config/nvim
-
-[ -e ~/.config/picom ] && rm -rf ~/.config/picom
-cp -r config/picom ~/.config/picom
-
-if [ -e ~/.config/fish ]; then
-  rm -rf ~/.config/fish
-  cp -r config/fish ~/.config/fish
-  chsh -s /usr/bin/fish
-fi
-
+yay -S nnn sxiv neovim picom fish cmus mpv ttf-symbola ttf-dejavu openssh sshfs \
+  alsa-utils xorg-setxkmap xcape xwallpaper xorg-xinit xorg-server libxinerama libxft \
+  adobe-source-han-sans-cn-fonts adobe-source-han-sans-tw-fonts \
+  adobe-source-han-sans-jp-fonts adobe-source-han-sans-kr-fonts

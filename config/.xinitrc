@@ -8,6 +8,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 
 export EDITOR="nvim"
 export BROWSER="qutebrowser"
+export SHELL="fish"
 
 export LESSHISTFILE=-
 

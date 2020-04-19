@@ -107,8 +107,12 @@ function dl
 	youtube-dl --ignore-errors --yes-playlist --extract-audio --audio-format mp3 --output "%(uploader)s/%(title)s.%(ext)s" $argv
 end
 
-function torr
-transmission-remote -a $argv
+function toradd
+  transmission-remote -a $argv
+end
+
+function tordel
+  transmission-remote -l | awk ' $2 == "100%" && $4 "Done" {print $1}' | xargs -n 1 -I % transmission-remote -t % -r
 end
 
 function man --description 'Format and display manual pages'

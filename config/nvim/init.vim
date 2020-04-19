@@ -1,10 +1,8 @@
-call plug#begin('~/.config/vimplugged')
+call plug#begin('~/.local/vim/plugged')
 "    Plug 'dense-analysis/ale'
 
     Plug 'sheerun/vim-polyglot'
     Plug 'terryma/vim-multiple-cursors'
-    Plug 'scrooloose/nerdtree'
-    Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 set number nowrap 

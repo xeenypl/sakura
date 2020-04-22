@@ -7,8 +7,7 @@ while read file; do
     "C-w")
       # xwallpaper --zoom "$file"
       xwallpaper $walloptions "$file"
-      echo  $file
-      echo -e "#!/bin/sh\nxwallpaper $walloptions \"$file\"" > $HOME/.config/wallpaper
+      echo -e "#!/bin/sh\nxwallpaper $walloptions \"$(readlink -e "$file")\"" > $HOME/.config/wallpaper
       chmod 755 $HOME/.config/wallpaper
       ;;
   esac

@@ -18,7 +18,7 @@ xcape -e 'Shift_L=Escape;Super_L=BackSpace'
 
 picom &
 transmission-daemon &
-~/.config/wallpaper
+xwallpaper --zoom ~/.config/wallpaper
 slstatus &
 
 while true

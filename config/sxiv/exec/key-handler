@@ -2,13 +2,19 @@
 
 walloptions="--zoom"
 
-while read file; do
-  case "$1" in
-    "C-w")
+case "$1" in
+  "C-w")
+    while read file; do
       # xwallpaper --zoom "$file"
+      cp "$file" ~/.config/wallpaper
       xwallpaper $walloptions "$file"
-      echo -e "#!/bin/sh\nxwallpaper $walloptions \"$(readlink -e "$file")\"" > $HOME/.config/wallpaper
-      chmod 755 $HOME/.config/wallpaper
-      ;;
-  esac
-done
+    done
+    ;;
+  "C-s")
+    NAME="$(echo | dmenu)"
+    [ -e "$NAME" ] || mkdir "$NAME"
+    while read file; do
+      mv "$file" "$NAME"
+    done
+    ;;
+esac

@@ -131,6 +131,10 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *vol_up[]   = { "amixer", "set", "Master", "5%+", NULL };
 static const char *vol_down[] = { "amixer", "set", "Master", "5%-", NULL };
 
+static const char *cmus_play[] = { "cmus-remote", "--pause", NULL };
+static const char *cmus_next[] = { "cmus-remote", "--next", NULL };
+static const char *cmus_prev[] = { "cmus-remote", "--prev", NULL };
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_minus,  spawn,          {.v = vol_down } },
@@ -151,6 +155,9 @@ static Key keys[] = {
   { MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
   { MODKEY,                       XK_space,  cyclelayout,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
+	{ MODKEY,                       XK_c,      spawn,          {.v = cmus_play } },
+	{ MODKEY,                       XK_z,      spawn,          {.v = cmus_next } },
+	{ MODKEY,                       XK_x,      spawn,          {.v = cmus_prev } },
 //	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 //	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_h,      focusmon,       {.i = -1 } },

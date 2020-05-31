@@ -14,6 +14,11 @@ yay -S gimp inkscape blender krita krita-plugin-gmic imagemagick
 yay -S zathura zathura-cb zathura-pdf-mupdf
 yay -S jack2 ardour x42-plugins lsp-plugins calf eq10q samplv1 synthv1
 
+cd dmenu/    && sudo make install clean && cd ..
+cd dwm/      && sudo make install clean && cd ..
+cd slstatus/ && sudo make install clean && cd ..
+cd st/       && sudo make install clean && cd ..
+
 if [ ! -e /usr/share/applications/transmission.desktop ]; then
   echo [Desktop Entry]                 | sudo tee -a /usr/share/applications/transmission.desktop
   echo Name=Transmission               | sudo tee -a /usr/share/applications/transmission.desktop
@@ -21,14 +26,14 @@ if [ ! -e /usr/share/applications/transmission.desktop ]; then
   echo Exec=transmission-remote -a %U  | sudo tee -a /usr/share/applications/transmission.desktop
 fi
 
+sudo groupadd audio
+sudo usermod -a -G audio $USER
+
 if [ ! grep  "@audio - rtprio 90" /etc/security/limits.conf ]; then
   echo "@audio - rtprio 90"      | sudo tee -a /etc/security/limits.conf
   echo "@audio - nice -5"        | sudo tee -a /etc/security/limits.conf
   echo "@audio - memlock 750000" | sudo tee -a /etc/security/limits.conf
 fi
-
-sudo groupadd audio
-sudo usermod -a -G audio $USER
 
 xdg-mime default transmission.desktop application/x-bittorrent
 xdg-mime default transmission.desktop x-scheme-handler/magnet
@@ -41,4 +46,7 @@ xdg-mime default sxiv.desktop image/bmp
 
 xdg-mime default org.pwmt.zathura.desktop application/pdf
 xdg-mime default org.pwmt.zathura.desktop application/epub+zip
+
+cp -r config/* $HOME/.config/
+[ -e $HOME/.xinitrc ] || cp config/.xinitrc $HOME/.xinitrc
 

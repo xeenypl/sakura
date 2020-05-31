@@ -14,10 +14,10 @@ yay -S gimp inkscape blender krita krita-plugin-gmic imagemagick
 yay -S zathura zathura-cb zathura-pdf-mupdf
 yay -S jack2 ardour x42-plugins lsp-plugins calf eq10q samplv1 synthv1
 
-cd dmenu/    && sudo make install clean && cd ..
-cd dwm/      && sudo make install clean && cd ..
-cd slstatus/ && sudo make install clean && cd ..
-cd st/       && sudo make install clean && cd ..
+cd ./dmenu/    && sudo make install clean && cd ..
+cd ./dwm/      && sudo make install clean && cd ..
+cd ./slstatus/ && sudo make install clean && cd ..
+cd ./st/       && sudo make install clean && cd ..
 
 if [ ! -e /usr/share/applications/transmission.desktop ]; then
   echo [Desktop Entry]                 | sudo tee -a /usr/share/applications/transmission.desktop

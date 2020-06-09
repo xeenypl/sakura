@@ -1,6 +1,7 @@
 call plug#begin('~/.local/vim/plugged')
 "    Plug 'dense-analysis/ale'
 
+    Plug 'dhruvasagar/vim-table-mode'
     Plug 'sheerun/vim-polyglot'
     Plug 'terryma/vim-multiple-cursors'
 call plug#end()

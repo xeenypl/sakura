@@ -1,12 +1,15 @@
 call plug#begin('~/.local/vim/plugged')
-"    Plug 'dense-analysis/ale'
+    Plug 'dense-analysis/ale'
+
+    Plug 'mattn/emmet-vim'
+    Plug 'preservim/nerdtree'
 
     Plug 'dhruvasagar/vim-table-mode'
     Plug 'sheerun/vim-polyglot'
     Plug 'terryma/vim-multiple-cursors'
 call plug#end()
 
-set number nowrap 
+set number nowrap
 set undofile undodir=~/.local/vim/undodir
 set tabstop=2 shiftwidth=2 expandtab
 set ignorecase
@@ -32,6 +35,13 @@ nnoremap j          gj
 nnoremap k          gk
 
 nnoremap <Tab>      :NERDTreeToggle<CR>
+
+let g:ale_completion_enabled = 1
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'html': ['prettier'],
+\}
 
 set background=dark
 set cursorline
